@@ -2,10 +2,10 @@
   "name": "react-project",
   "private": true,
   "version": "0.0.0",
-  "proxy": "https://react-blog-onlk.onrender.com",
+  "proxy": "https://blog-back-end-3-67bc.onrender.com",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host --port 8080",
     "start": "vite",
     "build": "vite build",
     "preview": "vite preview"
