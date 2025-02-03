@@ -14,7 +14,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme as toggle } from "./store/authSlice";
 import Footer from "./components/Footer";
 import ForgotPassword from './components/ForgotPassword';
-import Contributors from "./pages/Contributors";
 import Dashboard from "./pages/Dashboard";
 import AddarticlePage from "./pages/AddarticlePage";
 import Error404 from "./pages/Error404";
@@ -49,7 +48,6 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
           <Route path="/article-list" element={<ArticleList />} />
-          <Route path="/contributors" element={<Contributors />} />
           <Route
             path="/article/:name"
             element={<Article loggedInUserId={loggedInUserId} />}

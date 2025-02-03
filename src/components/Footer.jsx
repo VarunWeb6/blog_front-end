@@ -20,7 +20,7 @@ function Footer() {
 
                 <a
                   className="text-black hover:text-gray-700 dark:text-white dark:hover:text-white/75"
-                  href="https://github.com/OkenHaha/react-blog"
+                  href="https://github.com/VarunWeb6"
                   rel="noreferrer"
                 >
                   <span className="sr-only"> GitHub </span>
@@ -87,12 +87,6 @@ function Footer() {
                     </a>
                   </li>
                   <li>
-                    <Link
-                      className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
-                      to="/contributors"
-                    >
-                      Contributors
-                    </Link>
                   </li>
                   <li>
                     <Link
@@ -118,7 +112,7 @@ function Footer() {
                       href="#"
                     >
                       {" "}
-                      reactblogswoc@gmail.com{" "}
+                      VarunWeb6@gmail.com{" "}
                     </a>
                   </li>
                 </ul>

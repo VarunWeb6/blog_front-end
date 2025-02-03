@@ -5,8 +5,6 @@ import Read from "../assets/read-blog.jpg";
 import mission from "../assets/mission.jpg";
 import values from "../assets/values.avif";
 import vision from "../assets/vision.avif";
-import Contributors from "../pages/Contributors";
-import ContributorsLink from "./contributors/ContributorsLink";
 
 function Centre() {
   return (
@@ -161,34 +159,7 @@ function Centre() {
         </div>
       </section>
 
-      <section className="relative py-16 overflow-hidden">
-        <div className="relative container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2
-              className="text-4xl font-bold mb-8 text-blue-800 dark:text-yellow-400 
-                       bg-clip-text bg-gradient-to-r from-blue-800 to-blue-600 
-                       dark:from-yellow-400 dark:to-yellow-300"
-            >
-              Our Contributors
-            </h2>
 
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
-              Powered by passionate{" "}
-              <span className="text-blue-800 dark:text-yellow-400 font-semibold">
-                developers and creators.
-              </span>{" "}
-              Together, we're building something extraordinary. Join our
-              community of{" "}
-              <span className="text-blue-800 dark:text-yellow-400 font-semibold">
-                brilliant minds
-              </span>{" "}
-              who bring this project to life!
-            </p>
-
-            <ContributorsLink classes="w-14 h-14" />
-          </div>
-        </div>
-      </section>
 
       <section className="relative py-16 overflow-hidden">
         <div className="relative container mx-auto px-4">
