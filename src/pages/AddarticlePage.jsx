@@ -35,6 +35,7 @@ const AddArticlePage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
+        setError(null); // Clear previous errors
         try {
             const token = localStorage.getItem('token');
             const data = new FormData();
@@ -54,7 +55,15 @@ const AddArticlePage = () => {
                 }
             );
 
-            // Redirect or perform an action after successful submission
+            // Reset the form after successful submission
+            setFormData({
+                title: '',
+                content: '',
+                thumbnail: '',
+                tag: ''
+            });
+
+            // Redirect to the article list page
             window.location.href = '/article-list';
         } catch (err) {
             setError(err.response?.data?.error || 'Error creating article');
@@ -65,6 +74,7 @@ const AddArticlePage = () => {
     const handleSaveDraft = async (e) => {
         e.preventDefault();
         setSavingDraft(true);
+        setError(null); // Clear previous errors
         try {
             const token = localStorage.getItem('token');
             const data = new FormData();
@@ -86,7 +96,15 @@ const AddArticlePage = () => {
                 }
             );
 
-            // Redirect to drafts page or show success message
+            // Reset the form after successful save
+            setFormData({
+                title: '',
+                content: '',
+                thumbnail: '',
+                tag: ''
+            });
+
+            // Redirect to drafts page
             window.location.href = '/drafts';
         } catch (err) {
             setError(err.response?.data?.error || 'Error saving draft');
@@ -97,8 +115,8 @@ const AddArticlePage = () => {
     return (
         <div className="min-h-screen bg-gradient-to-b from-indigo-100 via-purple-100 to-indigo-200 text-white flex items-center justify-center p-6">
             <div className="bg-white text-black rounded-lg shadow-xl w-full max-w-3xl p-8">
-                <h2 className="text-2xl font-bold mb-6  text-center text-indigo-600">
-                    <div className='border-4 border-purple-500 inline-block px-3 rounded-md'>Create a New Article</div>    
+                <h2 className="text-2xl font-bold mb-6 text-center text-indigo-600">
+                    <div className="border-4 border-purple-500 inline-block px-3 rounded-md">Create a New Article</div>
                 </h2>
 
                 {error && (
@@ -109,9 +127,7 @@ const AddArticlePage = () => {
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium mb-1">
-                            Title
-                        </label>
+                        <label className="block text-sm font-medium mb-1">Title</label>
                         <input
                             type="text"
                             name="title"
@@ -124,9 +140,7 @@ const AddArticlePage = () => {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium mb-1">
-                            Content Editor Mode
-                        </label>
+                        <label className="block text-sm font-medium mb-1">Content Editor Mode</label>
                         <select
                             value={editorMode}
                             onChange={(e) => setEditorMode(e.target.value)}
@@ -138,9 +152,7 @@ const AddArticlePage = () => {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium mb-1">
-                            Content
-                        </label>
+                        <label className="block text-sm font-medium mb-1">Content</label>
                         {editorMode === 'normal' ? (
                             <textarea
                                 name="content"
@@ -162,9 +174,7 @@ const AddArticlePage = () => {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium mb-1">
-                            Thumbnail
-                        </label>
+                        <label className="block text-sm font-medium mb-1">Thumbnail</label>
                         <input
                             type="file"
                             name="thumbnail"
@@ -176,9 +186,7 @@ const AddArticlePage = () => {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium mb-1">
-                            Tag
-                        </label>
+                        <label className="block text-sm font-medium mb-1">Tag</label>
                         <select
                             name="tag"
                             value={formData.tag}
@@ -210,7 +218,7 @@ const AddArticlePage = () => {
                             className="bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition duration-300"
                             disabled={loading || savingDraft}
                         >
-                            {loading ? (<div>Creating.....</div>) : (<div>Create</div>)}
+                            {loading ? 'Creating.....' : 'Create'}
                         </button>
                         <button
                             type="button"
